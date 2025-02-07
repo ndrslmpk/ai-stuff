@@ -85,11 +85,7 @@ for epoch in range(3):
 assert abs(loss.item() - 2.3) < 0.1, "the loss should be around 2.3 with random data"
 
 
-#  Hugging Face
-
-# Replace <MASK> with the appropriate code to complete the exercise.
-
-# Get the model and tokenizer
+#  Hugging Face - Using AutoClassifier and Tokenizer for Review Sentiments
 
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
@@ -128,3 +124,41 @@ print(f"Review: {review}")
 print(f"Sentiment: {get_prediction(review)}")
 
 assert get_prediction(review) == "positive", "The prediction should be positive"
+
+
+
+# Downloading data from huggingFace
+
+
+from datasets import load_dataset
+
+dataset = load_dataset('stanfordnlp/imdb', split='test')
+
+# print(dataset)
+
+from pprint import pprint
+
+from datasets import Dataset
+
+assert isinstance(dataset, Dataset), "The dataset should be a Dataset object"
+assert set(dataset.features.keys()) == {
+    "label",
+    "text",
+}, "The dataset should have a label and a text feature"
+
+
+pprint(dataset[0])
+
+
+# Get the last 3 reviews
+reviews = dataset["text"][-3:]
+
+# Get the last 3 labels
+labels = dataset["label"][-3:]
+
+for review, label in zip(reviews, labels):
+    prediction = get_prediction(review)
+
+    print(f"Review: {review[:80]} \n... {review[-80:]}")
+    print(f'Label: {"positive" if label else "negative"}')
+    print(f"Prediction: {prediction}\n")
