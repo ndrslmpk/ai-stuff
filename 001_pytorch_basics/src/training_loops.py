@@ -57,4 +57,3 @@ for epoch in range(10):
 
 
 print(model(torch.tensor([3.0, 7.0])))
-
