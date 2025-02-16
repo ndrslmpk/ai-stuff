@@ -4,6 +4,9 @@ This project is used to get a better understanding of how AI works by applying s
 
 I am using this repository to collect some concepts and later on realize some initial project ideas like an object detector for my webcam.
 
+Currently I am using some of those abbrevations to sign my files
+- `hf` uses hugging-face
+- `fm` says that it is about foundational models
 
 # Knowledge
 

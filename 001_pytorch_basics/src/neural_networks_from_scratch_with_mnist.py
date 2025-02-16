@@ -43,6 +43,7 @@ print(x_train.shape)
 print(y_train.min(), y_train.max())
 
 
+# TODO: FINISH
 # Neural net from scratch
 
 import math
